@@ -10,5 +10,11 @@ Man soll mit WASD herumrennen können, springen mit SPACE und sprinten mit STRG.
 
 Am Anfang wird die Schwierigkeit und die Länge der Level noch kürzer sein, aber nach der Zeit, von Level zu Level, wird diese erhöht.
 
+_Ergänzungen:_
+Bei manchen Level ist es das Ziel ans Ende zu gelangen und alle Gegner die sich in den Weg stellen zu besiegen, bei manchen ist es jedoch das Ziel ein Rätsel zu lösen und einen richtigen Code einzugeben oder gewisse Knöpfe zu drücken damit man ans Ende gelangt. Die Gegner kann man besiegen in dem man auf sie draufspringt oder sie mit Pfeilen, die man in bestimmten Leveln einsammeln kann, zu treffen.
+
+Ein paar Mal pro Level hat der Spieler die Möglichkeit die Zeit für 3 Sekunden einzufrieren, was auch die Bewegungen der Gegner stoppt, dieser Effekt soll durch das stoppen einer Uhr die rechts oben erscheint symbolisiert werden.
+
+
 ## Zielgruppe
 Das Spiel soll an Gelegenheitsspielern gerichtet sein, die gerne von Level zu Level spielen. Da das Spiel auch nicht sehr komliziert aufgebaut ist, wird nicht so viel Skill sondern eher Übung benötigt, somit ist es auch an alle Altersgruppen gerichtet.
