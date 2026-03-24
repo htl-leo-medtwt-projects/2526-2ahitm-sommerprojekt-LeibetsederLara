@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'main-font';
+    src: url(../fonts/IMFellDWPicaSC-Regular.ttf);
+}
+
+body{
+    background-image: url(../img/background.jpg);
+    background-size: auto 100vh;
+    image-rendering: pixelated;
+    font-family: 'main-font';
+}
+
+#title{
+    width: 35vw;
+    text-align: center;
+    margin: 10vh auto;
+    color: #C50000;
+    font-size: 4rem;
+}
+
+#buttons{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.button{
+    margin: auto;
+    width: 18vw;
+    height: 8vh;
+    border: #C50000 solid 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.565);
+    color: #C50000;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#settingsButton{
+    grid-row: 2;
+    grid-column: 2;
+}
+
+#levelSelectionButton{
+    grid-column: 3;
+}
