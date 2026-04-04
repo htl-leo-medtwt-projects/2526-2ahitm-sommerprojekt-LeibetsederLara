@@ -8,3 +8,24 @@ function loadSettings(){
         settings.style.display = 'flex';
     }
 }
+
+let bgmusicBox = document.querySelectorAll('#musicBox img')[0]
+let audioBox = document.querySelectorAll('#audioBox img')[0]
+
+function bgmusic(){
+    if(bgmusicBox.style.opacity == '0'){
+        bgmusicBox.style.opacity == '1'
+    }
+    else{
+        bgmusicBox.style.display == '0'
+    }
+}
+
+function audio(){
+    if(audioBox.style.opacity == 0){
+        audioBox.style.display == 1
+    }
+    else{
+        audioBox.style.display == 0
+    }
+}
