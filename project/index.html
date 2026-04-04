@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost in the Dungeon</title>
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -13,7 +13,16 @@
     <div id="buttons">
         <div class="button">Start Game</div>
         <div id="levelSelectionButton" class="button">Level Selection</div>
-        <div id="settingsButton" class="button">Settings</div>
+        <div onclick="loadSettings()" id="settingsButton" class="button">Settings</div>
+    </div>
+
+    <div id="settingsOverlay">
+        <div id="settings">
+            <h2>Settings</h2>
+            <div onclick="loadSettings()" id="x">X</div>
+            <p>Audio: <span id="audioBox"></span></p>
+            <p>Background Music: <span id="musicBox"></span></p>
+        </div>
     </div>
 </body>
 </html>
