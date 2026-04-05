@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1 id="title">Lost in the Dungeon</h1>
+    <div id="startscreen" style="display: none;">
+        <h1 id="title">Lost in the Dungeon</h1>
 
-    <div id="buttons">
-        <div class="button">Start Game</div>
-        <div id="levelSelectionButton" class="button">Level Selection</div>
-        <div onclick="loadSettings()" id="settingsButton" class="button">Settings</div>
+        <div id="buttons">
+            <div class="button">Start Game</div>
+            <div id="levelSelectionButton" onclick="loadLevelSelection()" class="button">Level Selection</div>
+            <div onclick="loadSettings()" id="settingsButton" class="button">Settings</div>
+        </div>
     </div>
 
     <div id="settingsOverlay">
@@ -36,6 +38,30 @@
                 </p>
             </div>
         </div>
+    </div>
+
+    <div id="levelSelection">
+        <h1>Level
+            <br>
+            Selection
+        </h1>
+
+        <div id="levels">
+            <div class="level">
+                <h2>Level 1</h2>
+                <div class="startLevel">Start</div>
+            </div>
+            <div class="level">
+                <h2>Level 2</h2>
+                <div class="startLevel">Start</div>
+            </div>
+            <div class="level">
+                <h2>Level 3</h2>
+                <div class="startLevel">Start</div>
+            </div>
+        </div>
+
+        <div id="back" onclick="backToMenu()"><- Go Back</div>
     </div>
 </body>
 </html>

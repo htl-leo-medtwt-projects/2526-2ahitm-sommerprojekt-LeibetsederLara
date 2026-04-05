@@ -111,3 +111,41 @@ body{
 .x{
     transform: scale(1.6);
 }
+
+h1{
+    color: #C50000;
+    font-size: 3.5rem;
+    margin-left: 5vh;
+}
+
+#back{
+    position: fixed;
+    bottom: 3vh;
+    left: 3vh;
+    color: #C50000;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+#levels{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.level{
+    border: 5px solid #BA0000;
+    background: rgba(0, 0, 0, 0.5);
+    height: 40vh;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.startLevel{
+    width: 50%;
+    margin: auto;
+    fill: rgba(0, 0, 0, 0.5);
+    stroke-width: 5px;
+    stroke: #FCE4E3;
+}
