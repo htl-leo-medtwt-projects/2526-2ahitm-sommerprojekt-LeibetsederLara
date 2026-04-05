@@ -135,17 +135,42 @@ h1{
 .level{
     border: 5px solid #BA0000;
     background: rgba(0, 0, 0, 0.5);
-    height: 40vh;
+    height: auto;
     width: 70%;
     margin: auto;
     text-align: center;
     color: white;
+    position: relative;
+    padding: 3vh 1vh;
+    transform: scale(0.8);
+    opacity: 0.8;
 }
 
 .startLevel{
-    width: 50%;
+    width: 60%;
+    height: 10%;
     margin: auto;
-    fill: rgba(0, 0, 0, 0.5);
-    stroke-width: 5px;
-    stroke: #FCE4E3;
+    border: white dashed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 3%;
+}
+
+.startLevel:hover{
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #822626;
+    color: #822626;
+}
+
+.level h2{
+    color: #C50000;
+}
+
+#selected{
+    transform: scale(1.1);
+    opacity: 1;
 }
