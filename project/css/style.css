@@ -24,7 +24,7 @@ body{
 }
 
 .button{
-    margin: auto;
+    margin: 3vh auto;
     width: 18vw;
     height: 8vh;
     border: #C50000 solid 3px;
@@ -173,4 +173,26 @@ h1{
 #selected{
     transform: scale(1.1);
     opacity: 1;
+}
+
+#hearts{
+    display: flex;
+    position: fixed;
+    top: 3vh;
+    right: 3vh;
+    width: 20vw;
+}
+#hearts img{
+    width: 50%;
+}
+
+#temp{
+    position: fixed;
+    right: 2vh;
+    bottom: 2vh;    
+}
+
+.endscreen{
+    text-align: center;
+    margin: 10vh auto;
 }

@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="startscreen" style="display: none;">
+    <div id="startscreen">
         <h1 id="title">Lost in the Dungeon</h1>
 
         <div id="buttons">
-            <div class="button">Start Game</div>
+            <div class="button" onclick="startLevel('startscreen')">Start Game</div>
             <div id="levelSelectionButton" onclick="loadLevelSelection()" class="button">Level Selection</div>
             <div onclick="loadSettings()" id="settingsButton" class="button">Settings</div>
         </div>
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div id="levelSelection">
+    <div id="levelSelection" style="display: none;">
         <h1>Level
             <br>
             Selection
@@ -54,7 +54,7 @@
                 <p>Percent: 0%</p>
                 <p>Available: false</p>
                 <br>
-                <div class="startLevel">Start</div>
+                <div class="startLevel" onclick="startLevel('levelSelection')">Start</div>
             </div>
             <div id="selected" class="level">
                 <h2>Level 2</h2>
@@ -63,7 +63,7 @@
                 <p>Percent: 0%</p>
                 <p>Available: false</p>
                 <br>
-                <div class="startLevel">Start</div>
+                <div class="startLevel" onclick="startLevel('levelSelection')">Start</div>
             </div>
             <div class="level">
                 <h2>Level 3</h2>
@@ -72,11 +72,42 @@
                 <p>Percent: 0%</p>
                 <p>Available: false</p>
                 <br>
-                <div class="startLevel">Start</div>
+                <div class="startLevel" onclick="startLevel('levelSelection')">Start</div>
             </div>
         </div>
 
         <div id="back" onclick="backToMenu()"><- Go Back</div>
+    </div>
+
+    <div id="gamescreen" style="display: none;">
+        <h1>Level</h1>
+
+        <div id="hearts">
+            <img src="./img/heart.png" alt="heart" class="heart">
+            <img src="./img/heart.png" alt="heart" class="heart">
+            <img src="./img/heart.png" alt="heart" class="heart">
+        </div>
+
+        <!-- Temp buttons -->
+        <div id="temp">
+            <div class="button" onclick="die()">Die</div>
+            <br>
+            <div class="button" onclick="levelUp()">Level Up</div>
+        </div>
+    </div>
+
+    <div style="display: none;" id="gameover" class="endscreen">
+        <h1>YOU'RE DEAD</h1>
+
+        <div class="button" onclick="startLevel('gameover')">Restart Level</div>
+        <div class="button" onclick="loadMenu('gameover')">Exit to Menu</div>
+    </div>
+
+    <div style="display: none;" id="levelUp" class="endscreen">
+        <h1>Level Up!</h1>
+
+        <div class="button">Next Level</div>
+        <div class="button" onclick="loadMenu('levelUp')">Exit to Menu</div>
     </div>
 </body>
 </html>
