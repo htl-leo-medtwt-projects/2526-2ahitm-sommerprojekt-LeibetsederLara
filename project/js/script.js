@@ -9,24 +9,28 @@ function loadSettings(){
     }
 }
 
-let bgmusicBox = document.querySelectorAll('#musicBox img')[0]
-let audioBox = document.querySelectorAll('#audioBox img')[0]
+let bgmusicEnabled = false
+let audioEnabled = false
 
-function bgmusic(){
-    if(bgmusicBox.style.opacity == '0'){
-        bgmusicBox.style.opacity = '1'
+function bgmusic(image){
+    bgmusicEnabled != bgmusicEnabled
+
+    if(image.style.opacity == 1){
+        image.style.opacity = 0
     }
     else{
-        bgmusicBox.style.display = '0'
+        image.style.opacity = 1
     }
 }
 
-function audio(){
-    if(audioBox.style.opacity == '0'){
-        audioBox.style.display = '1'
+function audio(image){
+    audioEnabled != audioEnabled
+
+    if(image.style.opacity == 1){
+        image.style.opacity = 0
     }
     else{
-        audioBox.style.display = '0'
+        image.style.opacity = 1
     }
 }
 

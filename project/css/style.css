@@ -110,6 +110,7 @@ body{
 
 .x{
     transform: scale(1.6);
+    opacity: 0;
 }
 
 h1{
