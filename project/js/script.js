@@ -63,3 +63,68 @@ function levelUp(){
     document.getElementById('gamescreen').style.display = 'none'
     document.getElementById('levelUp').style.display = 'block'
 }
+
+let GAME_CONFIG = {
+    characterSpeed: 25
+}
+
+let KEY_EVENTS = {
+    leftArrow: false,
+    rightArrow: false,
+    upArrow: false,
+    downArrow: false
+}
+document.onkeydown = keyListenerDown;
+document.onkeyup = keyListenerUp;
+
+function keyListenerDown(e) {
+    if (e.key === "ArrowLeft") { // Left arrow
+        KEY_EVENTS.leftArrow = true;
+    }
+    if (e.key === "ArrowUp") { // Up arrow
+        KEY_EVENTS.upArrow = true;
+    }
+    if (e.key === "ArrowRight") { // Right arrow
+        KEY_EVENTS.rightArrow = true;
+    }
+    if (e.key === "ArrowDown") { // Down arrow
+        KEY_EVENTS.downArrow = true;
+    }
+}
+function keyListenerUp(e) {
+    if (e.key === "ArrowLeft") { // Left arrow
+        KEY_EVENTS.leftArrow = false;
+    }
+    if (e.key === "ArrowUp") { // Up arrow
+        KEY_EVENTS.upArrow = false;
+    }
+    if (e.key === "ArrowRight") { // Right arrow
+        KEY_EVENTS.rightArrow = false;
+    }
+    if (e.key === "ArrowDown") { // Down arrow
+        KEY_EVENTS.downArrow = false;
+    }
+}
+
+let PLAYER = document.getElementById("player");
+let x = parseFloat(PLAYER.style.left) || 0;
+
+function movePlayer(dx, _dy) {
+    x += dx;
+    PLAYER.style.left = x + 'px';
+}
+
+function gameLoop() {
+    if (KEY_EVENTS.leftArrow) {
+        console.log("left")
+        movePlayer(-GAME_CONFIG.characterSpeed, 0);
+    }
+    if (KEY_EVENTS.rightArrow) {
+        console.log("right")
+        movePlayer(GAME_CONFIG.characterSpeed, 0);
+    }
+
+    setTimeout(gameLoop, 1000 / GAME_CONFIG.characterSpeed);
+}
+
+gameLoop()

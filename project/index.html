@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="startscreen">
+    <div id="startscreen" style="display: none;">
         <h1 id="title">Lost in the Dungeon</h1>
 
         <div id="buttons">
@@ -79,7 +79,7 @@
         <div id="back" onclick="backToMenu()"><- Go Back</div>
     </div>
 
-    <div id="gamescreen" style="display: none;">
+    <div id="gamescreen" style="display: block;">
         <h1>Level</h1>
 
         <div id="hearts">
@@ -89,10 +89,14 @@
         </div>
 
         <!-- Temp buttons -->
-        <div id="temp">
+        <!-- <div id="temp">
             <div class="button" onclick="die()">Die</div>
             <br>
             <div class="button" onclick="levelUp()">Level Up</div>
+        </div> -->
+
+        <div id="player">
+            <div id="temp"></div>
         </div>
     </div>
 
