@@ -24,7 +24,7 @@ function bgmusic(image){
 }
 
 function audio(image){
-    audioEnabled != audioEnabled
+    audioEnabled = !audioEnabled
 
     if(image.style.opacity == 1){
         image.style.opacity = 0
@@ -72,46 +72,61 @@ let KEY_EVENTS = {
     leftArrow: false,
     rightArrow: false,
     upArrow: false,
-    downArrow: false
+    downArrow: false,
+    jump: false
 }
 document.onkeydown = keyListenerDown;
 document.onkeyup = keyListenerUp;
 
 function keyListenerDown(e) {
-    if (e.key === "ArrowLeft") { // Left arrow
+    if (e.key === "a") { // Left arrow
         KEY_EVENTS.leftArrow = true;
     }
     if (e.key === "ArrowUp") { // Up arrow
         KEY_EVENTS.upArrow = true;
     }
-    if (e.key === "ArrowRight") { // Right arrow
+    if (e.key === "d") { // Right arrow
         KEY_EVENTS.rightArrow = true;
     }
     if (e.key === "ArrowDown") { // Down arrow
         KEY_EVENTS.downArrow = true;
     }
+    if (e.key === " "){
+        KEY_EVENTS.jump = true
+    }
 }
 function keyListenerUp(e) {
-    if (e.key === "ArrowLeft") { // Left arrow
+    if (e.key === "a") { // Left arrow
         KEY_EVENTS.leftArrow = false;
     }
     if (e.key === "ArrowUp") { // Up arrow
         KEY_EVENTS.upArrow = false;
     }
-    if (e.key === "ArrowRight") { // Right arrow
+    if (e.key === "d") { // Right arrow
         KEY_EVENTS.rightArrow = false;
     }
     if (e.key === "ArrowDown") { // Down arrow
         KEY_EVENTS.downArrow = false;
     }
+    if (e.key === " "){
+        KEY_EVENTS.jump = false
+    }
 }
 
-let PLAYER = document.getElementById("player");
+const PLAYER = document.getElementById("player");
+const BOTTOM = 200;
 let x = parseFloat(PLAYER.style.left) || 0;
+let y = parseFloat(PLAYER.style.bottom) || BOTTOM +100;
+let vy = 0;
+let gravity = -1.5;
+let jumpStrength = 20;
+let isOnGround = false;
 
-function movePlayer(dx, _dy) {
+function movePlayer(dx, dy) {
     x += dx;
+    y += dy;
     PLAYER.style.left = x + 'px';
+    PLAYER.style.bottom = y + 'px';
 }
 
 function gameLoop() {
@@ -123,6 +138,21 @@ function gameLoop() {
         console.log("right")
         movePlayer(GAME_CONFIG.characterSpeed, 0);
     }
+    if (KEY_EVENTS.jump && isOnGround) {
+        vy = jumpStrength;
+        isOnGround = false;
+    }
+
+    vy += gravity;
+    y += vy;
+
+    if(y <= BOTTOM){
+        y = BOTTOM;
+        vy = 0;
+        isOnGround = true;
+    }
+
+    PLAYER.style.bottom = y + 'px';
 
     setTimeout(gameLoop, 1000 / GAME_CONFIG.characterSpeed);
 }
