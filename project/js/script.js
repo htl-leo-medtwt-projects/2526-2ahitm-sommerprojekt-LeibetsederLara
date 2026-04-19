@@ -113,7 +113,7 @@ function keyListenerUp(e) {
     }
 }
 
-let PLATFORMS = document.getElementsByClassName('platforms')
+let PLATFORMS = document.getElementsByClassName('platform')
 
 const PLAYER = document.getElementById("player");
 const BOTTOM = 200;
@@ -126,6 +126,30 @@ let isOnGround = false;
 let DISPLAY_HEIGHT = window.screen.height;
 let DISPLAY_WIDTH = window.screen.width;
 
+//collision function vom spritegame
+function isColliding(div1, div2, tolerance = 0) {
+
+    let d1OffsetTop = div1.offsetTop;
+    let d1OffsetLeft = div1.offsetLeft; 
+    let d1Height = div1.clientHeight;
+    let d1Width = div1.clientWidth;
+    let d1Top = d1OffsetTop + d1Height;
+    let d1Left = d1OffsetLeft + d1Width;
+
+    let d2OffsetTop = div2.offsetTop;
+    let d2OffsetLeft = div2.offsetLeft; 
+    let d2Height = div2.clientHeight;
+    let d2Width = div2.clientWidth;
+    let d2Top = d2OffsetTop + d2Height;
+    let d2Left = d2OffsetLeft + d2Width;
+
+    let distanceTop = d2OffsetTop - d1Top;
+    let distanceBottom = d1OffsetTop - d2Top;
+    let distanceLeft = d2OffsetLeft - d1Left;
+    let distanceRight = d1OffsetLeft - d2Left;
+
+    return !(tolerance < distanceTop || tolerance < distanceBottom || tolerance < distanceLeft || tolerance < distanceRight);
+};
 
 
 function movePlayer(dx, dy) {
@@ -138,13 +162,11 @@ function movePlayer(dx, dy) {
 function gameLoop() {
     if (KEY_EVENTS.leftArrow) {
         if(30 < x){
-            console.log("left")
             movePlayer(-GAME_CONFIG.characterSpeed, 0);
         }
     }
     if (KEY_EVENTS.rightArrow) {
         if(x < DISPLAY_WIDTH - 100){
-            console.log("right")
             movePlayer(GAME_CONFIG.characterSpeed, 0);
         }
     }
@@ -156,7 +178,7 @@ function gameLoop() {
     vy += gravity;
     y += vy;
 
-    //checkPlatforms()
+    isOnPlatform();
 
     if(y <= BOTTOM){
         y = BOTTOM;
@@ -169,15 +191,27 @@ function gameLoop() {
     setTimeout(gameLoop, 1000 / GAME_CONFIG.characterSpeed);
 }
 
-// function checkPlatforms(){
-//     for(let i = 0; i < PLATFORMS.length; i++){
-//         if(isColliding(PLATFORMS[i], PLAYER)){
-//             console.log('on platform');
+function isOnPlatform(){
+    for(let i = 0; i < PLATFORMS.length; i++){
+        if(isColliding(PLATFORMS[i], PLAYER) && vy <= 0){
+            console.log('on platform');
+            vy = 0;
+            isOnGround = true;
 
-//             // vy = 0;
-//             // isOnGround = true;
-//         }
-//     }
-// }
+            switch (i){
+                case 0:
+                    y = 300;
+                    break;
+                case 1:
+                    y = 500;
+                    break;
+                default:
+                    break;
+            }
+
+            y += 10;
+        }
+    }
+}
 
 gameLoop()
