@@ -1,7 +1,20 @@
 let GAME_CONFIG = {
     characterSpeed: 25
 }
-const PLATFORMS = document.getElementsByClassName('platform')
+const PLATFORMS = [
+    {
+        'box': document.querySelector('.platform:nth-child(1)'),
+        'height': 10,
+        'x': 200,
+        'y': 300
+    },
+    {
+        'box': document.querySelector('.platform:nth-child(2)'),
+        'height': 10,
+        'x': 800,
+        'y': 500
+    }
+]
 const PLAYER = document.getElementById("player");
 const BOTTOM = 200;
 const gravity = -1.5;

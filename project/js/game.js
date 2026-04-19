@@ -39,23 +39,12 @@ function gameLoop() {
 
 function isOnPlatform(){
     for(let i = 0; i < PLATFORMS.length; i++){
-        if(isColliding(PLATFORMS[i], PLAYER) && vy <= 0){
+        if(isColliding(PLATFORMS[i].box, PLAYER, 5) && vy <= 0){
             console.log('on platform');
             vy = 0;
             isOnGround = true;
 
-            switch (i){
-                case 0:
-                    y = 300;
-                    break;
-                case 1:
-                    y = 500;
-                    break;
-                default:
-                    break;
-            }
-
-            y += 10;
+            y = PLATFORMS[i].y + PLATFORMS[i].height;
         }
     }
 }
