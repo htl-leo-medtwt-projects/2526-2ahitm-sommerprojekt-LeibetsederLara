@@ -213,13 +213,13 @@ h1{
     height: 10px;
 }
 
-#p1{
+.platform:nth-child(1){
     position: absolute;
     bottom: 300px;
     left: 200px;
 }
 
-#p2{
+.platform:nth-child(2){
     position: absolute;
     bottom: 500px;
     left: 800px;
