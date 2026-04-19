@@ -13,7 +13,7 @@ let bgmusicEnabled = false
 let audioEnabled = false
 
 function bgmusic(image){
-    bgmusicEnabled != bgmusicEnabled
+    bgmusicEnabled = !bgmusicEnabled
 
     if(image.style.opacity == 1){
         image.style.opacity = 0
@@ -113,14 +113,20 @@ function keyListenerUp(e) {
     }
 }
 
+let PLATFORMS = document.getElementsByClassName('platforms')
+
 const PLAYER = document.getElementById("player");
 const BOTTOM = 200;
 let x = parseFloat(PLAYER.style.left) || 0;
-let y = parseFloat(PLAYER.style.bottom) || BOTTOM +100;
+let y = parseFloat(PLAYER.style.bottom) || BOTTOM + 100;
 let vy = 0;
 let gravity = -1.5;
-let jumpStrength = 20;
+let jumpStrength = 25;
 let isOnGround = false;
+let DISPLAY_HEIGHT = window.screen.height;
+let DISPLAY_WIDTH = window.screen.width;
+
+
 
 function movePlayer(dx, dy) {
     x += dx;
@@ -131,12 +137,16 @@ function movePlayer(dx, dy) {
 
 function gameLoop() {
     if (KEY_EVENTS.leftArrow) {
-        console.log("left")
-        movePlayer(-GAME_CONFIG.characterSpeed, 0);
+        if(30 < x){
+            console.log("left")
+            movePlayer(-GAME_CONFIG.characterSpeed, 0);
+        }
     }
     if (KEY_EVENTS.rightArrow) {
-        console.log("right")
-        movePlayer(GAME_CONFIG.characterSpeed, 0);
+        if(x < DISPLAY_WIDTH - 100){
+            console.log("right")
+            movePlayer(GAME_CONFIG.characterSpeed, 0);
+        }
     }
     if (KEY_EVENTS.jump && isOnGround) {
         vy = jumpStrength;
@@ -145,6 +155,8 @@ function gameLoop() {
 
     vy += gravity;
     y += vy;
+
+    //checkPlatforms()
 
     if(y <= BOTTOM){
         y = BOTTOM;
@@ -156,5 +168,16 @@ function gameLoop() {
 
     setTimeout(gameLoop, 1000 / GAME_CONFIG.characterSpeed);
 }
+
+// function checkPlatforms(){
+//     for(let i = 0; i < PLATFORMS.length; i++){
+//         if(isColliding(PLATFORMS[i], PLAYER)){
+//             console.log('on platform');
+
+//             // vy = 0;
+//             // isOnGround = true;
+//         }
+//     }
+// }
 
 gameLoop()
