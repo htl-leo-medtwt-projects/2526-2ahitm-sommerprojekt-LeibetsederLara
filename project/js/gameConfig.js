@@ -15,7 +15,20 @@ const PLATFORMS = [
         'y': 500
     }
 ]
+const ENEMIES = [
+    {
+        'box': document.querySelector('.enemy:nth-child(1)'),
+        'x': 650,
+        'y': 200
+    },
+    {
+        'box': document.querySelector('.enemy:nth-child(2)'),
+        'x': 950,
+        'y': 510
+    }
+]
 const PLAYER = document.getElementById("player");
+const ENEMY = document.getElementById('enemy')
 const BOTTOM = 200;
 const gravity = -1.5;
 let x = parseFloat(PLAYER.style.left) || 0;

@@ -25,6 +25,7 @@ function gameLoop() {
     y += vy;
 
     isOnPlatform();
+    checkForEnemies();
 
     if(y <= BOTTOM){
         y = BOTTOM;
@@ -45,6 +46,20 @@ function isOnPlatform(){
             isOnGround = true;
 
             y = PLATFORMS[i].y + PLATFORMS[i].height;
+        }
+    }
+}
+
+function checkForEnemies(){
+    for(let i = 0; i < ENEMIES.length; i++){
+        if(isColliding(PLAYER, ENEMIES[i].box)){
+            if(vy < 0 && ENEMIES[i].height+BOTTOM < y){
+                ENEMIES[i].box.style.display = 'none'
+                console.log('villian ded')
+            }
+            else{
+                console.log('DIIIIIEEEE')
+            }
         }
     }
 }

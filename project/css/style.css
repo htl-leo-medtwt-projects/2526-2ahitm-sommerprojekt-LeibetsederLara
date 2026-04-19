@@ -224,3 +224,21 @@ h1{
     bottom: 500px;
     left: 800px;
 }
+
+.enemy{
+    background-color: green;
+    width: 75px;
+    height: 75px;
+}
+
+.enemy:nth-child(1){
+    position: absolute;
+    bottom: 200px;
+    left: 650px;
+}
+
+.enemy:nth-child(2){
+    position: absolute;
+    bottom: 510px;
+    left: 950px;
+}
