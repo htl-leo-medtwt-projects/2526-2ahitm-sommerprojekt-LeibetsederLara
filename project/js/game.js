@@ -55,13 +55,42 @@ function checkForEnemies(){
             if(vy < -1.5){
                 ENEMIES[i].box.style.display = 'none'
                 console.log('ENEMY DEAD')
+
+                defeatedEnemies++;
+                if(defeatedEnemies == ENEMIES.length){
+                    levelUp();
+                }
             }
             else{
-                PLAYER.style.display = 'none'
                 console.log('PLAYER DEAD')
+
+                looseHeart()
             }
         }
     }
+}
+
+function looseHeart(){
+    if(!isInvincible){
+        hearts--
+        isInvincible = true;
+    }
+    if(hearts == 0){
+        die()
+    }
+    else{
+        x = 20;
+        y = 100;
+    }
+
+    PLAYER.style.opacity = 0.5;
+    
+    loadHearts(hearts)
+
+    setTimeout(() => {
+        PLAYER.style.opacity = 1;
+        isInvincible = false;
+    }, 1000);
 }
 
 gameLoop()

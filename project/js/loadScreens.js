@@ -63,3 +63,13 @@ function levelUp(){
     document.getElementById('gamescreen').style.display = 'none'
     document.getElementById('levelUp').style.display = 'block'
 }
+
+function loadHearts(amount){
+    let html = ''
+
+    for(let i = 0; i < amount; i++){
+        html += '<img src="./img/heart.png" alt="heart" class="heart">'
+    }
+
+    document.getElementById('hearts').innerHTML = html;
+}

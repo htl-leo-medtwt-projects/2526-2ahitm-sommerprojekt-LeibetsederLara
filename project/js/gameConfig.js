@@ -44,3 +44,5 @@ let isOnGround = false;
 let DISPLAY_HEIGHT = window.screen.height;
 let DISPLAY_WIDTH = window.screen.width;
 let hearts = 3;
+let defeatedEnemies = 0;
+let isInvincible = false;

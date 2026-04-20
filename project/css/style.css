@@ -181,10 +181,10 @@ h1{
     position: fixed;
     top: 3vh;
     right: 3vh;
-    width: 20vw;
+    height: 10vh;
 }
 #hearts img{
-    width: 50%;
+    height: 100%;
 }
 
 #temp{
