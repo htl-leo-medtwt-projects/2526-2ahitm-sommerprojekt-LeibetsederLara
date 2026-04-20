@@ -242,3 +242,20 @@ h1{
     bottom: 510px;
     left: 950px;
 }
+
+.hurtboxEnemy{
+    position: absolute;
+    height: 90%;
+    width: 100%;
+    bottom: 0;
+    background-color: red;
+}
+
+.hitboxEnemy{
+    position: absolute;
+    height: 10%;
+    width: 80%;
+    left: 10%;
+    top: 0;
+    background-color: yellow;
+}

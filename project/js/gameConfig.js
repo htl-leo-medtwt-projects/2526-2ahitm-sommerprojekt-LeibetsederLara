@@ -18,11 +18,15 @@ const PLATFORMS = [
 const ENEMIES = [
     {
         'box': document.querySelector('.enemy:nth-child(1)'),
+        'hitbox': document.querySelector('.hitboxEnemy:nth-child(1)'),
+        'hurtbox': document.querySelector('.hurtboxEnemy:nth-child(1)'),
         'x': 650,
         'y': 200
     },
     {
         'box': document.querySelector('.enemy:nth-child(2)'),
+        'hitbox': document.querySelector('.hitboxEnemy:nth-child(2)'),
+        'hurtbox': document.querySelector('.hurtboxEnemy:nth-child(2)'),
         'x': 950,
         'y': 510
     }
@@ -38,3 +42,4 @@ let jumpStrength = 25;
 let isOnGround = false;
 let DISPLAY_HEIGHT = window.screen.height;
 let DISPLAY_WIDTH = window.screen.width;
+let hearts = 3;

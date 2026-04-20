@@ -25,7 +25,7 @@ function gameLoop() {
     y += vy;
 
     isOnPlatform();
-    checkForEnemies();
+    //checkForEnemies();
 
     if(y <= BOTTOM){
         y = BOTTOM;
@@ -50,18 +50,17 @@ function isOnPlatform(){
     }
 }
 
-function checkForEnemies(){
-    for(let i = 0; i < ENEMIES.length; i++){
-        if(isColliding(PLAYER, ENEMIES[i].box)){
-            if(vy < 0 && ENEMIES[i].height+BOTTOM < y){
-                ENEMIES[i].box.style.display = 'none'
-                console.log('villian ded')
-            }
-            else{
-                console.log('DIIIIIEEEE')
-            }
-        }
-    }
-}
+// function checkForEnemies(){
+//     for(let i = 0; i < ENEMIES.length; i++){
+//         if(isColliding(PLAYER, ENEMIES[i].hitbox)){
+//             ENEMIES[i].box.style.display = 'none'
+//             console.log('ENEMY DEAD')
+//         }
+//         else if(isColliding(PLAYER, ENEMIES[i].hurtbox)){
+//             hearts--;
+//             console.log('PLAYER DEAD')
+//         }
+//     }
+// }
 
 gameLoop()
