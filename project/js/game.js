@@ -25,7 +25,7 @@ function gameLoop() {
     y += vy;
 
     isOnPlatform();
-    //checkForEnemies();
+    checkForEnemies();
 
     if(y <= BOTTOM){
         y = BOTTOM;
@@ -41,7 +41,6 @@ function gameLoop() {
 function isOnPlatform(){
     for(let i = 0; i < PLATFORMS.length; i++){
         if(isColliding(PLATFORMS[i].box, PLAYER, 5) && vy <= 0){
-            console.log('on platform');
             vy = 0;
             isOnGround = true;
 
@@ -50,17 +49,19 @@ function isOnPlatform(){
     }
 }
 
-// function checkForEnemies(){
-//     for(let i = 0; i < ENEMIES.length; i++){
-//         if(isColliding(PLAYER, ENEMIES[i].hitbox)){
-//             ENEMIES[i].box.style.display = 'none'
-//             console.log('ENEMY DEAD')
-//         }
-//         else if(isColliding(PLAYER, ENEMIES[i].hurtbox)){
-//             hearts--;
-//             console.log('PLAYER DEAD')
-//         }
-//     }
-// }
+function checkForEnemies(){
+    for(let i = 0; i < ENEMIES.length; i++){
+        if(isColliding(PLAYER,ENEMIES[i].box, -0.1)){
+            if(vy < -1.5){
+                ENEMIES[i].box.style.display = 'none'
+                console.log('ENEMY DEAD')
+            }
+            else{
+                PLAYER.style.display = 'none'
+                console.log('PLAYER DEAD')
+            }
+        }
+    }
+}
 
 gameLoop()

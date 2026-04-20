@@ -29,4 +29,4 @@ function isColliding(div1, div2, tolerance = 0) {
     let distanceRight = d1OffsetLeft - d2Left;
 
     return !(tolerance < distanceTop || tolerance < distanceBottom || tolerance < distanceLeft || tolerance < distanceRight);
-};
+}

@@ -226,36 +226,21 @@ h1{
 }
 
 .enemy{
+    position: absolute;
+}
+
+.enemy{
     background-color: green;
     width: 75px;
     height: 75px;
 }
 
 .enemy:nth-child(1){
-    position: absolute;
     bottom: 200px;
     left: 650px;
 }
 
 .enemy:nth-child(2){
-    position: absolute;
     bottom: 510px;
     left: 950px;
-}
-
-.hurtboxEnemy{
-    position: absolute;
-    height: 90%;
-    width: 100%;
-    bottom: 0;
-    background-color: red;
-}
-
-.hitboxEnemy{
-    position: absolute;
-    height: 10%;
-    width: 80%;
-    left: 10%;
-    top: 0;
-    background-color: yellow;
 }
