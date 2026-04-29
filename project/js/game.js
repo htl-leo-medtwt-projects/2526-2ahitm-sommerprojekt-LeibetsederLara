@@ -3,17 +3,21 @@ function movePlayer(dx, dy) {
     y += dy;
     PLAYER.style.left = x + 'px';
     PLAYER.style.bottom = y + 'px';
+
+    animatePlayer()
 }
 
 function gameLoop() {
     if (KEY_EVENTS.leftArrow) {
         if(30 < x){
             movePlayer(-GAME_CONFIG.characterSpeed, 0);
+            // animatePlayer()
         }
     }
     if (KEY_EVENTS.rightArrow) {
         if(x < DISPLAY_WIDTH - 100){
             movePlayer(GAME_CONFIG.characterSpeed, 0);
+            // animatePlayer()
         }
     }
     if (KEY_EVENTS.jump && isOnGround) {
@@ -91,6 +95,19 @@ function looseHeart(){
         PLAYER.style.opacity = 1;
         isInvincible = false;
     }, 1000);
+}
+
+function animatePlayer(){
+    if(spriteNumber < 3){
+        spriteNumber++
+        let spriteX = parseFloat(spriteImg.style.right);
+        spriteX += 45.0;
+        spriteImg.style.right = spriteX + "px";
+    }
+    else {
+        spriteImg.style.right = "0px";
+        spriteNumber = 0;
+    }
 }
 
 gameLoop()

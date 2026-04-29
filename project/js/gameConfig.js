@@ -33,6 +33,9 @@ const ENEMIES = [
 ];
 
 const PLAYER = document.getElementById("player");
+const spriteImg = document.getElementById('spriteImg')
+let spriteNumber = 0;
+let direction = 1;
 const ENEMY = document.getElementById('enemy')
 const BOTTOM = 200;
 const gravity = -1.5;

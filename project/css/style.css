@@ -199,12 +199,18 @@ h1{
 }
 
 #player{
-    width: 75px;
-    height: 75px;
+    width: 45px;
+    height: 58px;
     position: absolute;
     bottom: 200px;
     left: 20px;
-    background-color: red;
+    overflow: hidden;
+}
+
+#spriteImg{
+    height: 348px;
+    top: 0;
+    position: relative;
 }
 
 .platform{
