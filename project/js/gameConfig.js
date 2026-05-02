@@ -1,5 +1,6 @@
 let GAME_CONFIG = {
-    characterSpeed: 25
+    frameRate: 40,
+    characterSpeed: 7
 }
 const platforms = document.querySelectorAll('.platform');
 
@@ -38,7 +39,7 @@ let spriteNumber = 0;
 let direction = 1;
 const ENEMY = document.getElementById('enemy')
 const BOTTOM = 200;
-const gravity = -1.5;
+const gravity = -1.3;
 let x = parseFloat(PLAYER.style.left) || 0;
 let y = parseFloat(PLAYER.style.bottom) || BOTTOM + 100;
 let vy = 0;

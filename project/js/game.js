@@ -1,8 +1,9 @@
-function movePlayer(dx, dy) {
+function movePlayer(dx, dy, dr) {
     x += dx;
     y += dy;
     PLAYER.style.left = x + 'px';
     PLAYER.style.bottom = y + 'px';
+    PLAYER.style.transform = `scaleX(${dr})`
 
     animatePlayer()
 }
@@ -10,13 +11,13 @@ function movePlayer(dx, dy) {
 function gameLoop() {
     if (KEY_EVENTS.leftArrow) {
         if(30 < x){
-            movePlayer(-GAME_CONFIG.characterSpeed, 0);
+            movePlayer(-GAME_CONFIG.characterSpeed, 0, 1);
             // animatePlayer()
         }
     }
     if (KEY_EVENTS.rightArrow) {
         if(x < DISPLAY_WIDTH - 100){
-            movePlayer(GAME_CONFIG.characterSpeed, 0);
+            movePlayer(GAME_CONFIG.characterSpeed, 0, -1);
             // animatePlayer()
         }
     }
@@ -39,7 +40,7 @@ function gameLoop() {
 
     PLAYER.style.bottom = y + 'px';
 
-    setTimeout(gameLoop, 1000 / GAME_CONFIG.characterSpeed);
+    setTimeout(gameLoop, 1000 / GAME_CONFIG.frameRate);
 }
 
 function isOnPlatform(){
@@ -98,13 +99,22 @@ function looseHeart(){
 }
 
 function animatePlayer(){
+    let spriteX = parseFloat(spriteImg.style.right);
+    let spriteY = parseFloat(spriteImg.style.top);
+
     if(spriteNumber < 3){
         spriteNumber++
-        let spriteX = parseFloat(spriteImg.style.right);
         spriteX += 45.0;
         spriteImg.style.right = spriteX + "px";
     }
-    else {
+    else{
+        if(spriteY > -290){
+            spriteY -= 58;
+        }
+        else{
+            spriteY = 0;
+        }
+        spriteImg.style.top = spriteY + "px";
         spriteImg.style.right = "0px";
         spriteNumber = 0;
     }
