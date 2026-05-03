@@ -8,12 +8,14 @@ const PLATFORMS = [
     {
         box: platforms[0],
         height: 10,
+        width: 300,
         x: 200,
         y: 300
     },
     {
         box: platforms[1],
         height: 10,
+        width: 300,
         x: 800,
         y: 500
     }
@@ -39,7 +41,7 @@ let spriteNumber = 0;
 let direction = 1;
 const ENEMY = document.getElementById('enemy')
 const BOTTOM = 200;
-const gravity = -1.3;
+const gravity = -1.2;
 let x = parseFloat(PLAYER.style.left) || 0;
 let y = parseFloat(PLAYER.style.bottom) || BOTTOM + 100;
 let vy = 0;

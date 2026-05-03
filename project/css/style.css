@@ -205,6 +205,7 @@ h1{
     bottom: 200px;
     left: 20px;
     overflow: hidden;
+    z-index: 99;
 }
 
 #spriteImg{
@@ -214,7 +215,6 @@ h1{
 }
 
 .platform{
-    background-color: blue;
     width: 300px;
     height: 10px;
 }
@@ -249,4 +249,9 @@ h1{
 .enemy:nth-child(2){
     bottom: 510px;
     left: 950px;
+}
+
+.grass{
+    width: 50px;
+    height: auto;
 }
