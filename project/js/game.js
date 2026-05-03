@@ -26,6 +26,8 @@ function gameLoop() {
         isOnGround = false;
     }
 
+    animateEnemies()
+
     vy += gravity;
     y += vy;
 
@@ -117,6 +119,24 @@ function animatePlayer(){
         spriteImg.style.top = spriteY + "px";
         spriteImg.style.right = "0px";
         spriteNumber = 0;
+    }
+
+    setTimeout(animatePlayer, 1000 / GAME_CONFIG.frameRate);
+}
+
+function animateEnemies(){
+    for(let i = 0; i < ENEMIES.length;i++){
+        let spriteX = parseFloat(ENEMIES[i].sprite.style.right);
+
+        if(enemySpriteNumber < 6){
+            enemySpriteNumber++
+            spriteX += 80.0;
+            ENEMIES[i].sprite.style.right = spriteX + "px";
+        }
+        else{
+            ENEMIES[i].sprite.style.right = "0px";
+            enemySpriteNumber = 0;
+        }
     }
 }
 

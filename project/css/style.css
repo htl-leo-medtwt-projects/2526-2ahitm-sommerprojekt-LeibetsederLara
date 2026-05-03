@@ -214,6 +214,20 @@ h1{
     position: relative;
 }
 
+.enemy{
+    width: 80px;
+    position: absolute;
+    overflow: hidden;
+    transform: scale(2);
+}
+
+.enemySprite{
+    width: 640px;
+    height: 64px;
+    bottom: 0;
+    position: relative;
+}
+
 .platform{
     width: 300px;
     height: 10px;
@@ -231,7 +245,7 @@ h1{
     left: 800px;
 }
 
-.enemy{
+/* .enemy{
     position: absolute;
 }
 
@@ -239,7 +253,7 @@ h1{
     background-color: green;
     width: 75px;
     height: 75px;
-}
+} */
 
 .enemy:nth-child(1){
     bottom: 200px;

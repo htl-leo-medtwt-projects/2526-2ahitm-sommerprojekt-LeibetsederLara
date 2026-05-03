@@ -26,18 +26,21 @@ const ENEMIES = [
     {
         box: enemies[0],
         x: 650,
-        y: 200
+        y: 200,
+        sprite: document.getElementsByClassName('enemySprite')[0]
     },
     {
         box: enemies[1],
         x: 950,
-        y: 510
+        y: 510,
+        sprite: document.getElementsByClassName('enemySprite')[1]
     }
 ];
 
 const PLAYER = document.getElementById("player");
 const spriteImg = document.getElementById('spriteImg')
 let spriteNumber = 0;
+let enemySpriteNumber = 0;
 let direction = 1;
 const ENEMY = document.getElementById('enemy')
 const BOTTOM = 200;
