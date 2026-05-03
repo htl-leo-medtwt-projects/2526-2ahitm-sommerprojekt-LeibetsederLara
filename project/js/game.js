@@ -120,8 +120,6 @@ function animatePlayer(){
         spriteImg.style.right = "0px";
         spriteNumber = 0;
     }
-
-    setTimeout(animatePlayer, 1000 / GAME_CONFIG.frameRate);
 }
 
 function animateEnemies(){
