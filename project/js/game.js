@@ -26,6 +26,7 @@ function gameLoop() {
         isOnGround = false;
     }
 
+    moveEnemy()
     animateEnemies()
 
     vy += gravity;
@@ -47,11 +48,11 @@ function gameLoop() {
 
 function isOnPlatform(){
     for(let i = 0; i < PLATFORMS.length; i++){
-        if(isColliding(PLATFORMS[i].box, PLAYER, 5) && vy <= 0){
+        if(isColliding(PLATFORMS[i].box, PLAYER, PLAYER_TOLERANCE) && vy <= 0){
             vy = 0;
             isOnGround = true;
 
-            y = PLATFORMS[i].y + PLATFORMS[i].height;
+            y = PLATFORMS[i].y + PLATFORMS[i].height + PLAYER_TOLERANCE;
         }
     }
 }
@@ -123,18 +124,52 @@ function animatePlayer(){
 }
 
 function animateEnemies(){
-    for(let i = 0; i < ENEMIES.length;i++){
-        let spriteX = parseFloat(ENEMIES[i].sprite.style.right);
+    if(enemyFrameCounter >= 4){
+        for(let i = 0; i < ENEMIES.length;i++){
+            let spriteX = parseFloat(ENEMIES[i].sprite.style.right);
 
-        if(enemySpriteNumber < 6){
-            enemySpriteNumber++
-            spriteX += 80.0;
-            ENEMIES[i].sprite.style.right = spriteX + "px";
+            if(enemySpriteNumber < 6){
+                enemySpriteNumber++
+                spriteX += 80.0;
+                ENEMIES[i].sprite.style.right = spriteX + "px";
+            }
+            else{
+                ENEMIES[i].sprite.style.right = "0px";
+                enemySpriteNumber = 0;
+            }
+        }
+        enemyFrameCounter = 0
+    }
+    else{
+        enemyFrameCounter++
+    }
+}
+
+// if (KEY_EVENTS.leftArrow) {
+//         if(30 < x){
+//             movePlayer(-GAME_CONFIG.characterSpeed, 0, 1);
+//             // animatePlayer()
+//         }
+//     }
+//     if (KEY_EVENTS.rightArrow) {
+//         if(x < DISPLAY_WIDTH - 100){
+//             movePlayer(GAME_CONFIG.characterSpeed, 0, -1);
+//             // animatePlayer()
+//         }
+//     }
+
+function moveEnemy(){
+    for(let i = 0; i < ENEMIES.length; i++){
+        if(30 < ENEMIES[i].x){
+            ENEMIES[i].x -= (GAME_CONFIG.characterSpeed - 2)
+            ENEMIES[i].box.style.transform = 'scaleX(-1)'
         }
         else{
-            ENEMIES[i].sprite.style.right = "0px";
-            enemySpriteNumber = 0;
+            ENEMIES[i].x += (GAME_CONFIG.characterSpeed - 2)
+            ENEMIES[i].box.style.transform = 'scaleX(1)'
         }
+
+        ENEMIES[i].box.style.left = ENEMIES[i].x + "px"
     }
 }
 

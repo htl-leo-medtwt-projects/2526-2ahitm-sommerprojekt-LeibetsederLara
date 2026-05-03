@@ -38,9 +38,11 @@ const ENEMIES = [
 ];
 
 const PLAYER = document.getElementById("player");
+const PLAYER_TOLERANCE = 7
 const spriteImg = document.getElementById('spriteImg')
 let spriteNumber = 0;
 let enemySpriteNumber = 0;
+let enemyFrameCounter = 0;
 let direction = 1;
 const ENEMY = document.getElementById('enemy')
 const BOTTOM = 200;
