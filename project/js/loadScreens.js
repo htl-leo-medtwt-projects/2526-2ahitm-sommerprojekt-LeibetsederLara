@@ -52,6 +52,7 @@ function die(){
 function startLevel(element){
     document.getElementById('gamescreen').style.display = 'block'
     document.getElementById(element).style.display = 'none'
+    gameLoop()
 }
 
 function loadMenu(element){

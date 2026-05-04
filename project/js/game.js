@@ -160,17 +160,20 @@ function animateEnemies(){
 
 function moveEnemy(){
     for(let i = 0; i < ENEMIES.length; i++){
-        if(30 < ENEMIES[i].x){
-            ENEMIES[i].x -= (GAME_CONFIG.characterSpeed - 2)
+        if(30 >= ENEMIES[i].x){
             ENEMIES[i].box.style.transform = 'scaleX(-1)'
         }
-        else{
-            ENEMIES[i].x += (GAME_CONFIG.characterSpeed - 2)
+        else if(DISPLAY_WIDTH - 100 <= ENEMIES[i].x){
             ENEMIES[i].box.style.transform = 'scaleX(1)'
+        }
+
+        if(ENEMIES[i].box.style.transform == 'scaleX(-1)'){
+            ENEMIES[i].x += (GAME_CONFIG.characterSpeed - 2)
+        }
+        else{
+            ENEMIES[i].x -= (GAME_CONFIG.characterSpeed - 2)
         }
 
         ENEMIES[i].box.style.left = ENEMIES[i].x + "px"
     }
 }
-
-gameLoop()
