@@ -10,7 +10,7 @@ const PLATFORMS = [
         height: 10,
         width: 300,
         x: 200,
-        y: 300
+        y: 400
     },
     {
         box: platforms[1],
@@ -27,13 +27,19 @@ const ENEMIES = [
         box: enemies[0],
         x: 650,
         y: 200,
-        sprite: document.getElementsByClassName('enemySprite')[0]
+        sprite: document.getElementsByClassName('enemySprite')[0],
+        isOnGround: true,
+        vy: 0,
+        tolerance: 50
     },
     {
         box: enemies[1],
         x: 950,
         y: 510,
-        sprite: document.getElementsByClassName('enemySprite')[1]
+        sprite: document.getElementsByClassName('enemySprite')[1],
+        isOnGround: true,
+        vy: 0,
+        tolerance: 50
     }
 ];
 

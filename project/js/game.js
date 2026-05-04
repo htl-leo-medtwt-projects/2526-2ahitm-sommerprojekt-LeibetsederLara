@@ -41,6 +41,19 @@ function gameLoop() {
         isOnGround = true;
     }
 
+    for(let i = 0; i < ENEMIES.length; i++){
+        ENEMIES[i].vy += gravity;
+        ENEMIES[i].y += ENEMIES[i].vy;
+
+        if(ENEMIES[i].y <= BOTTOM + 50){
+            ENEMIES[i].y = BOTTOM + 50;
+            ENEMIES[i].vy = 0;
+            ENEMIES[i].isOnGround = true;
+        }
+
+        ENEMIES[i].box.style.bottom = ENEMIES[i].y + 'px'
+    }
+
     PLAYER.style.bottom = y + 'px';
 
     setTimeout(gameLoop, 1000 / GAME_CONFIG.frameRate);
@@ -53,6 +66,15 @@ function isOnPlatform(){
             isOnGround = true;
 
             y = PLATFORMS[i].y + PLATFORMS[i].height + PLAYER_TOLERANCE;
+        }
+
+        for(let j = 0; j < ENEMIES.length; j++){
+            if(isColliding(PLATFORMS[i].box, ENEMIES[j].box, ENEMIES[j].tolerance) && ENEMIES[j].vy <= 0){
+                ENEMIES[j].vy = 0;
+                ENEMIES[j].isOnGround = true;
+
+                ENEMIES[j].y = PLATFORMS[i].y + PLATFORMS[i].height + ENEMIES[j].tolerance;
+            }
         }
     }
 }
