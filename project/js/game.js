@@ -24,6 +24,7 @@ function gameLoop() {
     if (KEY_EVENTS.jump && isOnGround) {
         vy = jumpStrength;
         isOnGround = false;
+        SOUNDS.jump.play()
     }
 
     moveEnemy()
@@ -89,10 +90,16 @@ function checkForEnemies(){
                 defeatedEnemies++;
                 if(defeatedEnemies == ENEMIES.length){
                     levelUp();
+                    SOUNDS.levelUp.play()
+                }
+                else{
+                    SOUNDS.enemyHurt.play()
                 }
             }
             else{
                 console.log('PLAYER DEAD')
+
+                SOUNDS.playerHurt.play()
 
                 looseHeart()
             }

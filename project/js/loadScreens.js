@@ -9,8 +9,8 @@ function loadSettings(){
     }
 }
 
-let bgmusicEnabled = false
-let audioEnabled = false
+let bgmusicEnabled = true
+let audioEnabled = true
 
 function bgmusic(image){
     bgmusicEnabled = !bgmusicEnabled
@@ -32,6 +32,8 @@ function audio(image){
     else{
         image.style.opacity = 1
     }
+
+    Howler.mute(!audioEnabled)
 }
 
 function backToMenu(){
