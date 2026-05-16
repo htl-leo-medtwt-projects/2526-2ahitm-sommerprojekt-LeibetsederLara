@@ -26,6 +26,10 @@ function gameLoop() {
         isOnGround = false;
         SOUNDS.jump.play()
     }
+    
+    if(vy < 0){
+        isOnGround = false
+    }
 
     moveEnemy()
     animateEnemies()
@@ -205,4 +209,19 @@ function moveEnemy(){
 
         ENEMIES[i].box.style.left = ENEMIES[i].x + "px"
     }
+}
+
+function startTimer() {
+    setInterval(() => {
+        time++;
+        let mins = Math.floor(time / 60);
+        let secs = time % 60;
+        let secStr;
+        if(secs < 10) {
+            secStr = '0' + secs;
+        } else {
+            secStr = secs;
+        }
+        document.getElementById('time').innerHTML = mins + ':' + secStr;
+    }, 1000);
 }

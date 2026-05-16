@@ -271,3 +271,16 @@ h1{
     width: 50px;
     height: auto;
 }
+
+#time{
+    font-size: 50px;
+    color: #BA0000;
+    height: 80px;
+    width: 150px;
+    background-color: #441414;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black 3px solid;
+    border-radius: 5px;
+}

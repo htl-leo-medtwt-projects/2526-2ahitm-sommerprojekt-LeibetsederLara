@@ -32,8 +32,6 @@ function audio(image){
     else{
         image.style.opacity = 1
     }
-
-    Howler.mute(!audioEnabled)
 }
 
 function backToMenu(){
@@ -53,7 +51,10 @@ function die(){
 
 function startLevel(element){
     document.getElementById('gamescreen').style.display = 'block'
+    document.getElementById('gamescreen').style.scaleX = DISPLAY_WIDTH / 1440
+    Howler.mute(!audioEnabled)
     document.getElementById(element).style.display = 'none'
+    startTimer()
     gameLoop()
 }
 

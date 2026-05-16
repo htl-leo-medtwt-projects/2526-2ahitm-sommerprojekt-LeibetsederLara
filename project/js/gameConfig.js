@@ -63,9 +63,10 @@ let DISPLAY_WIDTH = window.screen.width;
 let hearts = 3;
 let defeatedEnemies = 0;
 let isInvincible = false;
+let time = 0;
 
 const SOUNDS = {
-    jump: new Howl({src: ['./audio/jump.mp3'], volume: 0.7}),
+    jump: new Howl({src: ['./audio/jump.mp3'], volume: 0.5}),
     enemyHurt: new Howl({src: ['./audio/enemy-defeated.mp3'], volume: 0.5}),
     playerHurt: new Howl({src: ['./audio/hurt.mp3'], volume: 0.7}),
     levelUp: new Howl({src: ['./audio/levelUp.mp3'], volume: 1})
