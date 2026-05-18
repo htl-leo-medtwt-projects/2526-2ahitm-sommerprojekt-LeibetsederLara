@@ -66,6 +66,10 @@ function loadMenu(element){
 function levelUp(){
     document.getElementById('gamescreen').style.display = 'none'
     document.getElementById('levelUp').style.display = 'block'
+
+    if(localStorage.getItem('recordTime') == null || time < localStorage.getItem('recordTime')){
+        localStorage.setItem('recordTime',time)
+    }
 }
 
 function loadHearts(amount){
