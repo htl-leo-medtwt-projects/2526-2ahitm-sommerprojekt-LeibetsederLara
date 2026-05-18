@@ -71,3 +71,18 @@ const SOUNDS = {
     playerHurt: new Howl({src: ['./audio/hurt.mp3'], volume: 0.7}),
     levelUp: new Howl({src: ['./audio/levelUp.mp3'], volume: 1})
 }
+
+const spawnPositions = [
+    {
+        y: 417,
+        x: 300
+    },
+    {
+        y: 200,
+        x: 670
+    },
+    {
+        y: 517,
+        x: 945
+    }
+]

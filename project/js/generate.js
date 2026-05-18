@@ -11,6 +11,8 @@ function generatePlatforms(){
 }
 
 function generateEnemy() {
+    let random = spawnPositions[Math.floor(Math.random() * spawnPositions.length)]
+
     let container = document.getElementById('enemies')
     let div = document.createElement('div')
     div.className = 'enemy'
@@ -24,8 +26,8 @@ function generateEnemy() {
 
     ENEMIES.push({
         box: div,
-        x: 650,
-        y: 200,
+        x: random.x,
+        y: random.y,
         sprite: img,
         isOnGround: true,
         vy: 0,
