@@ -284,3 +284,7 @@ h1{
     border: black 3px solid;
     border-radius: 5px;
 }
+
+#record{
+    font-size: 50px;
+}

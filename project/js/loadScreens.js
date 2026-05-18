@@ -52,6 +52,11 @@ function die(){
 function startLevel(element){
     document.getElementById('gamescreen').style.display = 'block'
     document.getElementById('gamescreen').style.scaleX = DISPLAY_WIDTH / 1440
+
+    if(localStorage.getItem('recordTime') != null){
+        document.getElementById('record').innerHTML = `Record: ${localStorage.getItem('recordTime')} seconds`
+    }
+
     Howler.mute(!audioEnabled)
     document.getElementById(element).style.display = 'none'
     startTimer()
@@ -69,6 +74,8 @@ function levelUp(){
 
     if(localStorage.getItem('recordTime') == null || time < localStorage.getItem('recordTime')){
         localStorage.setItem('recordTime',time)
+
+        document.querySelector('#levelUp h1').innerHTML += 'New Record!'
     }
 }
 
