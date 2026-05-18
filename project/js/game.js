@@ -12,13 +12,11 @@ function gameLoop() {
     if (KEY_EVENTS.leftArrow) {
         if(30 < x){
             movePlayer(-GAME_CONFIG.characterSpeed, 0, 1);
-            // animatePlayer()
         }
     }
     if (KEY_EVENTS.rightArrow) {
         if(x < DISPLAY_WIDTH - 100){
             movePlayer(GAME_CONFIG.characterSpeed, 0, -1);
-            // animatePlayer()
         }
     }
     if (KEY_EVENTS.jump && isOnGround) {
@@ -223,5 +221,13 @@ function startTimer() {
             secStr = secs;
         }
         document.getElementById('time').innerHTML = mins + ':' + secStr;
+
+        
+    if(time % 10 == 0 && time != 0){
+        generateEnemy()
+    }
+    else if(time % 10 == 1 && time != 1){
+        ENEMIES[ENEMIES.length-1].box.style.opacity = '1'
+    }
     }, 1000);
 }

@@ -9,3 +9,28 @@ function generatePlatforms(){
         }
     }
 }
+
+function generateEnemy() {
+    let container = document.getElementById('enemies')
+    let div = document.createElement('div')
+    div.className = 'enemy'
+
+    let img = document.createElement('img')
+    img.className = 'enemySprite'
+    img.src = './img/Mushroom-Run.png'
+
+    div.appendChild(img)
+    container.appendChild(div)
+
+    ENEMIES.push({
+        box: div,
+        x: 650,
+        y: 200,
+        sprite: img,
+        isOnGround: true,
+        vy: 0,
+        tolerance: 50
+    });
+
+    div.style.opacity = '0'
+}
