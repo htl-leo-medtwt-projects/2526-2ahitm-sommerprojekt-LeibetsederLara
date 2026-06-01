@@ -64,6 +64,7 @@ let hearts = 3;
 let defeatedEnemies = 0;
 let isInvincible = false;
 let time = 0;
+let playerMoves = false;
 
 const SOUNDS = {
     jump: new Howl({src: ['./audio/jump.mp3'], volume: 0.5}),

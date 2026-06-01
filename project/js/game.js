@@ -1,14 +1,17 @@
 function movePlayer(dx, dy, dr) {
     x += dx;
     y += dy;
+    
     PLAYER.style.left = x + 'px';
     PLAYER.style.bottom = y + 'px';
     PLAYER.style.transform = `scaleX(${dr})`
 
-    animatePlayer()
+    playerMoves = true;
 }
 
 function gameLoop() {
+    playerMoves = false;
+
     if (KEY_EVENTS.leftArrow) {
         if(30 < x){
             movePlayer(-GAME_CONFIG.characterSpeed, 0, 1);
@@ -24,10 +27,12 @@ function gameLoop() {
         isOnGround = false;
         SOUNDS.jump.play()
     }
-    
+
     if(vy < 0){
         isOnGround = false
     }
+
+    animatePlayer()
 
     moveEnemy()
     animateEnemies()
@@ -132,25 +137,58 @@ function looseHeart(){
     }, 1000);
 }
 
+let currentAnimation = "idle"
+let animationCounter = 0;
+
 function animatePlayer(){
     let spriteX = parseFloat(spriteImg.style.right);
     let spriteY = parseFloat(spriteImg.style.top);
 
-    if(spriteNumber < 3){
-        spriteNumber++
-        spriteX += 45.0;
-        spriteImg.style.right = spriteX + "px";
+    animationCounter++;
+
+    if(animationCounter == 3){
+        animationCounter = 0;
     }
-    else{
-        if(spriteY > -290){
-            spriteY -= 58;
+
+    if(playerMoves){
+        if(currentAnimation == "idle"){
+            currentAnimation = "walk"
+            spriteY = 0
+        }
+        spriteImg.src = './img/walk.png'
+        spriteImg.style.height = '348px'
+
+        if(spriteNumber < 3){
+            spriteNumber++
+            spriteX += 46.0;
+            spriteImg.style.right = spriteX + "px";
         }
         else{
-            spriteY = 0;
+            if(spriteY > -290){
+                spriteY -= 58;
+            }
+            else{
+                spriteY = 0;
+            }
+            spriteImg.style.top = spriteY + "px";
+            spriteImg.style.right = "0px";
+            spriteNumber = 0;
         }
-        spriteImg.style.top = spriteY + "px";
-        spriteImg.style.right = "0px";
-        spriteNumber = 0;
+    }
+    else if(animationCounter == 0){
+        spriteImg.src = './img/idle.png'
+        spriteImg.style.height = '55px'
+        spriteImg.style.top = "0px";
+
+        if(spriteNumber < 9){
+            spriteNumber++
+            spriteX += 46.0;
+            spriteImg.style.right = spriteX + "px";
+        }
+        else{
+            spriteNumber = 0;
+            spriteImg.style.right = "0px";
+        }
     }
 }
 
@@ -223,10 +261,10 @@ function startTimer() {
         document.getElementById('time').innerHTML = mins + ':' + secStr;
 
         
-    if(time % 10 == 0 && time != 0){
+    if(time % 5 == 0 && time != 0){
         generateEnemy()
     }
-    else if(time % 10 == 1 && time != 1){
+    else if(time % 5 == 1 && time != 1){
         ENEMIES[ENEMIES.length-1].box.style.opacity = '1'
     }
     }, 1000);

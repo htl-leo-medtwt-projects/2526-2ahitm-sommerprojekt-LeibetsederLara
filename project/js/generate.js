@@ -11,7 +11,11 @@ function generatePlatforms(){
 }
 
 function generateEnemy() {
-    let random = spawnPositions[Math.floor(Math.random() * spawnPositions.length)]
+    let random = null
+
+    while(random == null || random.y == y){
+        random = spawnPositions[Math.floor(Math.random() * spawnPositions.length)]
+    }
 
     let container = document.getElementById('enemies')
     let div = document.createElement('div')
