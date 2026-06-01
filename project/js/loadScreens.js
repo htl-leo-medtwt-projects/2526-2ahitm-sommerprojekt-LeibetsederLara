@@ -58,6 +58,7 @@ function startLevel(element){
     }
 
     Howler.mute(!audioEnabled)
+    SOUNDS.bgmusic.play()
     document.getElementById(element).style.display = 'none'
     startTimer()
     gameLoop()
