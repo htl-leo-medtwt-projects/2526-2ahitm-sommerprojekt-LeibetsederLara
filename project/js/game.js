@@ -90,7 +90,7 @@ function isOnPlatform(){
 
 function checkForEnemies() {
     for (let i = ENEMIES.length - 1; i >= 0; i--) {
-        if (isColliding(PLAYER, ENEMIES[i].box, -0.1)) {
+        if (isColliding(PLAYER, ENEMIES[i].box, -15)) {
             if (vy < -1.5) {
                 ENEMIES[i].box.remove();
                 ENEMIES.splice(i, 1); 
