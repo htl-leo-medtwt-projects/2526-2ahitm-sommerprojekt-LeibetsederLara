@@ -30,7 +30,8 @@ const ENEMIES = [
         sprite: document.getElementsByClassName('enemySprite')[0],
         isOnGround: true,
         vy: 0,
-        tolerance: 50
+        tolerance: 50,
+        direction: 'left'
     },
     {
         box: enemies[1],
@@ -39,7 +40,8 @@ const ENEMIES = [
         sprite: document.getElementsByClassName('enemySprite')[1],
         isOnGround: true,
         vy: 0,
-        tolerance: 50
+        tolerance: 50,
+        direction: 'left'
     }
 ];
 

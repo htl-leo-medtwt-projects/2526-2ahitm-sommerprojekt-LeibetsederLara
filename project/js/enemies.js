@@ -20,22 +20,22 @@ function animateEnemies(){
     }
 }
 
-function moveEnemy(){
-    for(let i = 0; i < ENEMIES.length; i++){
-        if(30 >= ENEMIES[i].x){
-            ENEMIES[i].box.style.transform = 'scaleX(-1)'
-        }
-        else if(DISPLAY_WIDTH - 100 <= ENEMIES[i].x){
-            ENEMIES[i].box.style.transform = 'scaleX(1)'
-        }
-
-        if(ENEMIES[i].box.style.transform == 'scaleX(-1)'){
-            ENEMIES[i].x += (GAME_CONFIG.characterSpeed - 2)
-        }
-        else{
-            ENEMIES[i].x -= (GAME_CONFIG.characterSpeed - 2)
+function moveEnemy() {
+    for (let i = 0; i < ENEMIES.length; i++) {
+        if (ENEMIES[i].x <= 30) {
+            ENEMIES[i].direction = 'right';
+            ENEMIES[i].box.style.transform = 'scaleX(-1)';
+        } else if (ENEMIES[i].x >= DISPLAY_WIDTH - 100) {
+            ENEMIES[i].direction = 'left';
+            ENEMIES[i].box.style.transform = 'scaleX(1)';
         }
 
-        ENEMIES[i].box.style.left = ENEMIES[i].x + "px"
+        if (ENEMIES[i].direction === 'right') {
+            ENEMIES[i].x += (GAME_CONFIG.characterSpeed - 2);
+        } else {
+            ENEMIES[i].x -= (GAME_CONFIG.characterSpeed - 2);
+        }
+
+        ENEMIES[i].box.style.left = ENEMIES[i].x + "px";
     }
 }

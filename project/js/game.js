@@ -39,6 +39,7 @@ function gameLoop() {
 
     vy += gravity;
     y += vy;
+    console.log(vy)
 
     isOnPlatform();
     checkForEnemies();
@@ -87,28 +88,20 @@ function isOnPlatform(){
     }
 }
 
-function checkForEnemies(){
-    for(let i = 0; i < ENEMIES.length; i++){
-        if(isColliding(PLAYER,ENEMIES[i].box, -0.1)){
-            if(vy < -1.5){
-                ENEMIES[i].box.style.display = 'none'
-                console.log('ENEMY DEAD')
+function checkForEnemies() {
+    for (let i = ENEMIES.length - 1; i >= 0; i--) {
+        if (isColliding(PLAYER, ENEMIES[i].box, -0.1)) {
+            if (vy < -1.5) {
+                ENEMIES[i].box.remove();
+                ENEMIES.splice(i, 1); 
 
                 defeatedEnemies++;
-                if(defeatedEnemies == ENEMIES.length){
-                    levelUp();
-                    SOUNDS.levelUp.play()
-                }
-                else{
-                    SOUNDS.enemyHurt.play()
-                }
-            }
-            else{
-                console.log('PLAYER DEAD')
-
-                SOUNDS.playerHurt.play()
-
-                looseHeart()
+                
+                SOUNDS.enemyHurt.play();
+                
+            } else {
+                SOUNDS.playerHurt.play();
+                looseHeart();
             }
         }
     }
@@ -120,7 +113,7 @@ function looseHeart(){
         isInvincible = true;
     }
     if(hearts == 0){
-        die()
+        levelUp()
     }
     else{
         x = 20;
@@ -176,6 +169,7 @@ function animatePlayer(){
         }
     }
     else if(animationCounter == 0){
+        //ENEMIES[i].direction = 'left';
         spriteImg.src = './img/idle.png'
         spriteImg.style.height = '55px'
         spriteImg.style.top = "0px";

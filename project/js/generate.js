@@ -35,7 +35,8 @@ function generateEnemy() {
         sprite: img,
         isOnGround: true,
         vy: 0,
-        tolerance: 50
+        tolerance: 50,
+        direction: 'left'
     });
 
     div.style.opacity = '0'

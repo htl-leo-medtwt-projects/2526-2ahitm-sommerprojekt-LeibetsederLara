@@ -72,10 +72,10 @@ function levelUp(){
     document.getElementById('gamescreen').style.display = 'none'
     document.getElementById('levelUp').style.display = 'block'
 
-    if(localStorage.getItem('recordTime') == null || time < localStorage.getItem('recordTime')){
+    if(localStorage.getItem('recordTime') == null || localStorage.getItem('recordTime') < time){
         localStorage.setItem('recordTime',time)
 
-        document.querySelector('#levelUp h1').innerHTML += 'New Record!'
+        document.querySelector('#levelUp h1').innerHTML += ' New Record!'
     }
 }
 
