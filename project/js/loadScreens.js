@@ -65,8 +65,7 @@ function startLevel(element){
 }
 
 function loadMenu(element){
-    document.getElementById(element).style.display = 'none'
-    document.getElementById('startscreen').style.display = 'block'
+    location.reload(true)
 }
 
 function levelUp(){
@@ -78,6 +77,8 @@ function levelUp(){
 
         document.querySelector('#levelUp h1').innerHTML += ' New Record!'
     }
+
+    Howler.mute(true)
 }
 
 function loadHearts(amount){

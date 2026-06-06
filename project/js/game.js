@@ -39,7 +39,6 @@ function gameLoop() {
 
     vy += gravity;
     y += vy;
-    console.log(vy)
 
     isOnPlatform();
     checkForEnemies();
@@ -90,7 +89,7 @@ function isOnPlatform(){
 
 function checkForEnemies() {
     for (let i = ENEMIES.length - 1; i >= 0; i--) {
-        if (isColliding(PLAYER, ENEMIES[i].box, -15)) {
+        if (isColliding(PLAYER, ENEMIES[i].box, -1.5)) {
             if (vy < -1.5) {
                 ENEMIES[i].box.remove();
                 ENEMIES.splice(i, 1); 
@@ -212,12 +211,16 @@ function startTimer() {
         }
         document.getElementById('time').innerHTML = mins + ':' + secStr;
 
+        if(time / 10 == 3){
+            respawnTime = 3;
+        }
         
-    if(time % 5 == 0 && time != 0){
-        generateEnemy()
-    }
-    else if(time % 5 == 1 && time != 1){
-        ENEMIES[ENEMIES.length-1].box.style.opacity = '1'
-    }
+
+        if(time % respawnTime == 0 && time != 0){
+            generateEnemy()
+        }
+        else if(time % respawnTime == 1 && time != 1){
+            ENEMIES[ENEMIES.length-1].box.style.opacity = '1'
+        }
     }, 1000);
 }

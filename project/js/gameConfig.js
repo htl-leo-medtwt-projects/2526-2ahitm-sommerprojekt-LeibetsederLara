@@ -67,10 +67,11 @@ let defeatedEnemies = 0;
 let isInvincible = false;
 let time = 0;
 let playerMoves = false;
+let respawnTime = 5;
 
 const SOUNDS = {
     jump: new Howl({src: ['./audio/jump.mp3'], volume: 0.5}),
-    enemyHurt: new Howl({src: ['./audio/enemy-defeated.mp3'], volume: 0.5}),
+    enemyHurt: new Howl({src: ['./audio/enemy-defeated.mp3'], volume: 1}),
     playerHurt: new Howl({src: ['./audio/hurt.mp3'], volume: 0.7}),
     levelUp: new Howl({src: ['./audio/levelUp.mp3'], volume: 1}),
     bgmusic: new Howl({src: ['./audio/hexxel-enter-the-dungeon.mp3'], volume: 0.7})
